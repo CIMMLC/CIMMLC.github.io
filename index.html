@@ -1,0 +1,150 @@
+<!doctype html>
+<html>
+
+<head>
+  <title> CIM-MLC </title>
+  <meta charset="utf-8" name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" media="screen" rel="stylesheet" type="text/css" />
+  <link href="css/frame.css" media="screen" rel="stylesheet" type="text/css" />
+  <link href="css/controls.css" media="screen" rel="stylesheet" type="text/css" />
+  <link href="css/custom.css" media="screen" rel="stylesheet" type="text/css" />
+  <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300,700' rel='stylesheet' type='text/css'>
+  <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.25.0/themes/prism.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="js/menu.js"></script>
+  <script src="js/footer.js"></script>
+  <style>
+    .menu-index {
+      color: rgb(255, 255, 255) !important;
+      opacity: 1 !important;
+      font-weight: 700 !important;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="menu-container"></div>
+  <div class="content-container">
+    <!-------------------------------------------------------------------------------------------->
+    <!--Start Header-->
+    <div class="banner" style="background: url('img/test_back.png') no-repeat center; background-size: cover; height: 300px;"></div>
+    <div class="banner">
+      <div class="banner-table flex-column">
+        <div class="flex-row">
+          <div class="flex-item flex-column">
+            <h1 class="add-top-margin-small">CIM-MLC: Multi-level Compilation Stack for Computing-In-Memory Accelerators</h1>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!--End Header-->
+    <!-------------------------------------------------------------------------------------------->
+    
+    
+    
+    <div class="content">
+      <div class="content-table flex-column">
+        <div class="flex-row">
+          <div class="flex-item flex-column">
+            <p class="text text-large center-align-content">
+              Songyun Qu*, Shixin Zhao*, Bing Li, Yintao He, Xuyi Cai, Lei Zhang, <a target="_blank" href="wangying2009@ict.ac.cn">Ying Wang</a>✉️ 
+            </p>
+            <div class="gallery add-top-margin-small add-bottom-margin-small">
+              <a href="http://www.ict.ac.cn/" class="flex-column"><img class="flex-column"src="img/ict.png">
+              </a>
+              <a href="javascript:void(0)" class="flex-column"><img src="img/ucas.png">
+              </a>
+              <a href="javascript:void(0)" class="flex-column"><img src="img/cnu.png">
+              </a>
+            </div>
+            <!-- <p class="text">
+              If we need the berif introducation
+            </p> -->
+            <h1>abstraction</h1>
+            <hr>
+            <p class="text">
+              In recent years, various computing-in-memory (CIM) processors have been presented, showing superior performance over traditional architectures. To unleash the potential of various CIM architectures, such as device precision, crossbar
+              size, and crossbar number, it is necessary to develop compilation
+              tools that are fully aware of the CIM architectural details
+              and implementation diversity. However, due to the lack of
+              architectural support in current popular open-source compiling
+              stacks such as TVM, existing CIM designs either manually
+              deploy networks or build their own compilers, which is
+              time-consuming and labor-intensive. Although some works
+              expose the specific CIM device programming interfaces to
+              compilers, they are often bound to a fixed CIM architecture,
+              lacking the flexibility to support the CIM architectures with
+              different computing granularity. On the other hand, existing
+              compilation works usually consider the scheduling of limited
+              operation types (such as crossbar-bound matrix-vector
+              multiplication). Unlike conventional processors, CIM accelerators
+              are featured by their diverse architecture, circuit, and
+              device, which cannot be simply abstracted by a single level
+              if we seek to fully explore the advantages brought by CIM.
+            </p>
+            <p class=" text">
+              Therefore, we propose CIM-MLC , a universal multi-level
+              compilation framework for general CIM architectures. In
+              this work, we first establish a general hardware abstraction
+              for CIM architectures and computing modes to represent
+              various CIM accelerators. Based on the proposed abstraction,
+              CIM-MLC can compile tasks onto a wide range of CIM accelerators
+              having different devices, architectures, and programming
+              interfaces. More importantly, compared with existing
+              compilation work, CIM-MLC can explore the mapping and
+              scheduling strategies across multiple architectural tiers in
+              CIM, which form a tractable yet effective design space, to
+              achieve better scheduling and instruction generation results.
+              Experimental results show that CIM-MLC achieves 3.2× inference
+              speedup on average compared to prior CIM-oriented
+              compilation work.
+            </p>
+            <h1>Workflow</h1>
+            <p class="text">
+              CIM-MLC is a general compiler that features the unified abstraction from diverse CIM hardware and multi-level scheduling with abundant meta-operators. The following diagram shows the workflow of MLC-CIM.
+            </p>
+            <a class="image adaptive-image" style="background-image: url('img/workflow.png'); min-height: 250px;" href="img/workflow.png" target="_blank"></a>
+            <p class="text">
+              Specifically, we use hardware abstraction to provide the same description format of architecture parameters and computing mode for the various CIM designs. To decouple the data mapping and computing scheduling with one architectural design, we propose multi-level scheduling technology to handle the computing mode for different architectural tiers in the CIMs. The multi-level scheduler tailors the optimization method for each computing mode, applies the optimization method independently or jointly according to the abstraction of the CIM accelerator, and finally generates the meta-operator flow for the CIM accelerator.
+            </p>
+            <!-- <h1>Demo</h1>
+            <div class="code-container">
+              <div class="code-block">
+                <h2 class="center-align-content">code1</h2>
+                  <pre><code class="language-javascript">
+                    console.log("Hello, world!");
+                  </code></pre>
+              </div>
+            
+              <div class="code-block">
+                <h2 class="center-align-content">code 2</h2>
+                  <pre><code class="language-javascript">
+                      var x = 10;
+                      console.log(x);
+                  </code></pre>
+              </div>
+            </div>
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.25.0/prism.min.js"></script>
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.25.0/plugins/autoloader/prism-autoloader.min.js"></script>
+            <p class="text">
+              Nam eget dui. Etiam rhoncus. Maecenas tempus, tellus eget condimentum rhoncus, sem quam semper libero, sit amet.
+            </p> -->
+            <div class="control-group">
+              <a class="custom-button-flat" href="https://github.com/Zhaoshixin-sky/CIM-MLC-TODO" target="_blank">
+                <img src="img/github.png"><span>GitHub</span>
+              </a>
+              <a class="custom-button-flat" href="https://arxiv.org/pdf/2401.12428.pdf" target="_blank">
+                <img src="img/link.png"><span>Paper</span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="footer-container"></div>
+</body>
+
+</html>
